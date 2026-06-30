@@ -1,0 +1,17 @@
+# Template file for 'adwaita-icon-theme-legacy'
+pkgname=adwaita-icon-theme-legacy
+version=46.2
+revision=1
+build_style=meson
+hostmakedepends="pkg-config"
+short_desc="Standard icons missing from adwaita-icon-theme"
+maintainer="Juhani Krekelä <juhani@krekelä.fi>"
+license="LGPL-3.0-or-later OR CC-BY-SA-3.0"
+homepage="https://gitlab.gnome.org/GNOME/adwaita-icon-theme-legacy"
+changelog="https://gitlab.gnome.org/GNOME/adwaita-icon-theme-legacy/-/raw/master/NEWS"
+distfiles="${GNOME_SITE}/adwaita-icon-theme-legacy/${version/.*/}/adwaita-icon-theme-legacy-${version}.tar.xz"
+checksum=548480f58589a54b72d18833b755b15ffbd567e3187249d74e2e1f8f99f22fb4
+
+pre_configure() {
+	ln -s /bin/true "$XBPS_WRAPPERDIR/gtk-update-icon-cache"
+}
